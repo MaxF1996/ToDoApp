@@ -17,6 +17,11 @@ app.get("/decks", async (req: Request, res: Response) => {
   res.json(decks);
 });
 
+app.delete("/decks/:id", async (req: Request, res: Response) => {
+  const deletedDeck = await Deck.findByIdAndDelete(req.params.id);
+  res.json(deletedDeck);
+});
+
 app.post("/decks", async (req: Request, res: Response) => {
   const newDeck = new Deck({
     title: req.body.title,
