@@ -12,14 +12,24 @@ export default function App() {
 
   async function handleCreateDeck(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    await fetch("http://localhost:5000/decks", {
+    const response = await fetch("http://localhost:5000/decks", {
       method: "POST",
       body: JSON.stringify({ title }),
       headers: {
         "Content-Type": "application/json",
       },
     });
+
+    const newDeck = await response.json();
+    setDecks([...decks, newDeck]);
     setTitle("");
+  }
+
+  async function handleDeleteDeck(deckId: string) {
+    await fetch(`http://localhost:5000/decks/${deckId}`, {
+      method: "DELETE",
+    });
+    setDecks(decks.filter((deck) => deck._id !== deckId));
   }
 
   useEffect(() => {
@@ -37,7 +47,15 @@ export default function App() {
       <h1>To Do App</h1>
       <ul className="Decks" id="Decks">
         {decks.map((deck: any) => (
-          <li key={deck._id}>{deck.title}</li>
+          <li key={deck._id}>
+            <button
+              className="DeleteButton"
+              onClick={() => handleDeleteDeck(deck._id)}
+            >
+              X
+            </button>
+            {deck.title}
+          </li>
         ))}
       </ul>
       <form onSubmit={handleCreateDeck} id="DeckForm" className="DeckForm">

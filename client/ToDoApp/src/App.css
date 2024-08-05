@@ -23,8 +23,8 @@
 .Decks li {
   list-style: none;
   display: flex;
+  gap: 10px;
   align-items: center;
-  justify-content: center;
   padding: 10px;
   border: 1px solid white;
   border-radius: 7px;
@@ -51,7 +51,8 @@
   font-size: 1em;
 }
 
-.SubmitButton {
+.SubmitButton,
+.DeleteButton {
   cursor: pointer;
   background-color: white;
   color: black;
@@ -65,10 +66,21 @@
   transition: all 0.3s;
 }
 
-.SubmitButton:hover {
+.SubmitButton:hover,
+.DeleteButton:hover {
   background-color: black;
   color: white;
   border-color: teal;
+}
+
+.DeleteButton {
+  padding: 5px 8px;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.DeleteButton:hover {
+  border-color: red;
 }
 
 button:focus,
