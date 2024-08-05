@@ -5,38 +5,73 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Decks {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding-left: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.Decks li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 7px;
 }
 
-.card {
-  padding: 2em;
+.DeckForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
 }
 
-.read-the-docs {
-  color: #888;
+.DeckForm label {
+  font-weight: 700;
+  font-size: 1.25em;
+  line-height: 1;
+}
+
+.DeckForm input {
+  padding: 10px;
+  border-radius: 7px;
+  min-width: 300px;
+  max-width: 500px;
+  font-size: 1em;
+}
+
+.SubmitButton {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 7px;
+  padding: 10px;
+
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.SubmitButton:hover {
+  background-color: black;
+  color: white;
+  border-color: teal;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
