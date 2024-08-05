@@ -11,7 +11,8 @@
   gap: 20px;
 }
 
-.Decks {
+.Decks,
+.CardsList {
   max-width: 600px;
   margin: 0 auto;
   display: grid;
@@ -20,7 +21,12 @@
   padding-left: 0;
 }
 
-.Decks li {
+.CardsList {
+  margin-bottom: 20px;
+}
+
+.Decks li,
+.CardsList li {
   list-style: none;
   display: flex;
   gap: 10px;
@@ -30,20 +36,23 @@
   border-radius: 7px;
 }
 
-.DeckForm {
+.DeckForm,
+.CardForm {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 18px;
 }
 
-.DeckForm label {
+.DeckForm label,
+.CardForm label {
   font-weight: 700;
   font-size: 1.25em;
   line-height: 1;
 }
 
-.DeckForm input {
+.DeckForm input,
+.CardForm input {
   padding: 10px;
   border-radius: 7px;
   min-width: 300px;

@@ -1,0 +1,10 @@
+.NavButtonsList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

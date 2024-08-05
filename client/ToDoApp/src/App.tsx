@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { createDeck } from "./api/createDeck";
 import { getDecks, TDeck } from "./api/getDecks";
 import { deleteDeck } from "./api/deleteDeck";
@@ -31,7 +32,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>To Do App</h1>
       <ul className="Decks" id="Decks">
         {decks.map((deck: any) => (
           <li key={deck._id}>
@@ -41,7 +41,8 @@ export default function App() {
             >
               X
             </button>
-            {deck.title}
+
+            <Link to={`/decks/${deck._id}`}>{deck.title}</Link>
           </li>
         ))}
       </ul>
@@ -55,6 +56,7 @@ export default function App() {
           type="text"
           name="title"
           id="DeckTitle"
+          className="DeckTitle"
           placeholder="Enter Deck Title"
           required
         />
