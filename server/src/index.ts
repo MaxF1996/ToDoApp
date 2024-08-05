@@ -1,6 +1,9 @@
 import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 
+import { config } from "dotenv";
+config();
+
 import Deck from "./models/Deck";
 
 const PORT = 5000;
@@ -16,11 +19,7 @@ app.post("/decks", async (req: Request, res: Response) => {
   res.json(createdDeck);
 });
 
-mongoose
-  .connect(
-    "mongodb+srv://max_f96:5MUq52jzfdTeXXYC@maxf96.eisceua.mongodb.net/DeckAppDB?retryWrites=true&w=majority&appName=MAXF96"
-  )
-  .then(() => {
-    console.log(`listening on port ${PORT}`);
-    app.listen(PORT);
-  });
+mongoose.connect(process.env.MONGODB_URL!).then(() => {
+  console.log(`listening on port ${PORT}`);
+  app.listen(PORT);
+});
